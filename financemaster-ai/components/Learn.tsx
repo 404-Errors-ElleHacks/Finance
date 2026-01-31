@@ -17,10 +17,10 @@ export const Learn: React.FC = () => {
   };
 
   const categories = [
-    { id: 'savings', label: 'Savings Strategies', desc: 'How to keep more of what you earn.' },
-    { id: 'investing', label: 'Investing Basics', desc: 'Growing your wealth over time.' },
-    { id: 'budgeting', label: 'Budgeting 101', desc: 'Tracking expenses and setting limits.' },
-    { id: 'debt', label: 'Debt Management', desc: 'Strategies to become debt-free.' },
+    { id: 'savings', label: 'Savings Strategies', desc: 'How to keep more of what you earn.', color: '#FF8299' }, // pink
+    { id: 'investing', label: 'Investing Basics', desc: 'Growing your wealth over time.', color: '#76E37F' }, // green
+    { id: 'budgeting', label: 'Budgeting 101', desc: 'Tracking expenses and setting limits.', color: '#FFE066' }, // yellow
+    { id: 'debt', label: 'Debt Management', desc: 'Strategies to become debt-free.', color: '#B58CFF' }, // purple
   ];
 
   return (
@@ -36,15 +36,21 @@ export const Learn: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-6">
         {categories.map((cat) => (
           <div key={cat.id} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all group">
-            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-600 transition-colors">
-              <BookOpen className="w-6 h-6 text-emerald-600 group-hover:text-white transition-colors" />
+            <div
+              className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors"
+              style={{ backgroundColor: `${cat.color}33` }} // 20% opacity pastel background
+            >
+              <BookOpen
+                className="w-6 h-6 transition-colors"
+                style={{ color: cat.color }}
+              />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2">{cat.label}</h3>
             <p className="text-slate-500 mb-6 h-10">{cat.desc}</p>
             <Button 
                 onClick={() => handleGetTip(cat.label)} 
                 variant="outline" 
-                className="w-full hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700"
+                className="w-full hover:bg-slate-50"
             >
               Get {cat.label} Tip
             </Button>
