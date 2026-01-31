@@ -56,7 +56,7 @@ export const Home: React.FC<HomeProps> = ({ onStart, onLearn }) => {
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Risk-Free Learning</h3>
               <p className="text-slate-600">
-                Start with $20,000 virtual cash. Make mistakes here so you don't make them with real money.
+                Start with $10,000 virtual cash. Make mistakes here so you don't make them with real money.
               </p>
             </div>
 
