@@ -22,13 +22,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onChangeView, balan
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
+            {/* Logo and App Name */}
             <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={() => onChangeView(ViewState.HOME)}>
-              <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
-                <TrendingUp className="h-5 w-5 text-white" />
-              </div>
+              <img 
+                src="/images/SheFinanceLogo.png" 
+                alt="SheFinance Logo" 
+                className="w-12 h-12 rounded-full object-cover" 
+              />
               <span className="font-bold text-xl text-slate-800">SheFinance</span>
             </div>
             
+            {/* Desktop Navigation */}
             <div className="hidden sm:ml-8 sm:flex sm:space-x-4">
               <button 
                 onClick={() => onChangeView(ViewState.HOME)}
@@ -54,6 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onChangeView, balan
             </div>
           </div>
           
+          {/* Balance */}
           <div className="flex items-center">
             <div className="bg-slate-100 px-4 py-2 rounded-full flex items-center gap-2 border border-slate-200">
               <Wallet className="w-4 h-4 text-emerald-600" />
@@ -66,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onChangeView, balan
         </div>
       </div>
       
-      {/* Mobile Nav */}
+      {/* Mobile Navigation */}
       <div className="sm:hidden flex justify-around border-t border-slate-100 py-2">
           <button onClick={() => onChangeView(ViewState.HOME)} className="p-2 text-slate-500 hover:text-emerald-600"><Home/></button>
           <button onClick={() => onChangeView(ViewState.MARKET)} className="p-2 text-slate-500 hover:text-emerald-600"><TrendingUp/></button>
