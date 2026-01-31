@@ -16,14 +16,14 @@ export const Home: React.FC<HomeProps> = ({ onStart, onLearn }) => {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="max-w-4xl mx-auto px-6 text-center z-10">
           <span className="inline-block py-1 px-3 rounded-full bg-emerald-100 text-emerald-800 text-sm font-semibold mb-6">
-            AI-Powered Financial Literacy
+            Helping Women Gain Financial Literacy
           </span>
           <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-8">
-            Master the Market <br />
-            <span className="text-emerald-600">Without the Risk</span>
+            Your Financial Confidence <br />
+            <span className="text-emerald-600">Starts Here</span>
           </h1>
           <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Experience the thrill of stock trading with virtual currency. Learn strategies, analyze trends, and get personalized tips from our AI assistant.
+            Practice stock trading using virtual currency in a supportive, low-pressure space designed for women. Explore strategies, analyze trends, and get personalized guidance from our AI assistant.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={onStart} className="shadow-lg shadow-emerald-600/20">
@@ -56,7 +56,7 @@ export const Home: React.FC<HomeProps> = ({ onStart, onLearn }) => {
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Risk-Free Learning</h3>
               <p className="text-slate-600">
-                Start with $10,000 virtual cash. Make mistakes here so you don't make them with real money.
+                Start with $20,000 virtual cash. Make mistakes here so you don't make them with real money.
               </p>
             </div>
 

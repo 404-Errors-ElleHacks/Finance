@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Stock, UserState, Transaction, StockHistoryPoint, PortfolioItem } from '../types';
+import React, { useState, useEffect } from 'react';
+import { Stock, UserState, Transaction, StockHistoryPoint } from '../types';
 import { INITIAL_STOCKS } from '../constants';
 import { StockChart } from './StockChart';
 import { Button } from './Button';
 import { getMarketAnalysis } from '../services/geminiService';
-import { TrendingUp, TrendingDown, RefreshCw, AlertCircle } from 'lucide-react';
+import { TrendingUp, RefreshCw, AlertCircle } from 'lucide-react';
 
 interface StockMarketProps {
   userState: UserState;
@@ -25,6 +25,10 @@ export const StockMarket: React.FC<StockMarketProps> = ({ userState, onTrade, se
 
   const selectedStock = stocks.find(s => s.symbol === selectedStockSymbol) || stocks[0];
   const userHolding = userState.portfolio[selectedStockSymbol]?.quantity || 0;
+  const portfolioItem = userState.portfolio[selectedStockSymbol];
+  const quantity = portfolioItem?.quantity || 0;
+  const avgCost = portfolioItem?.avgCost || 0;
+  const profitLoss = quantity > 0 ? (selectedStock.price - avgCost) * quantity : 0;
 
   // Initialize history
   useEffect(() => {
@@ -42,10 +46,10 @@ export const StockMarket: React.FC<StockMarketProps> = ({ userState, onTrade, se
   useEffect(() => {
     const interval = setInterval(() => {
       setStocks(prevStocks => {
-        const newStocks = prevStocks.map(stock => {
+        return prevStocks.map(stock => {
           const changePercent = (Math.random() - 0.5) * stock.volatility * 2; // Random walk
           const newPrice = Math.max(0.01, stock.price * (1 + changePercent));
-          
+
           // Update history
           setHistory(prev => {
             const stockHistory = prev[stock.symbol] || [];
@@ -64,7 +68,6 @@ export const StockMarket: React.FC<StockMarketProps> = ({ userState, onTrade, se
             changePercent: changePercent * 100
           };
         });
-        return newStocks;
       });
     }, 3000); // Update every 3 seconds
 
@@ -263,7 +266,15 @@ export const StockMarket: React.FC<StockMarketProps> = ({ userState, onTrade, se
                     </div>
                     <div className="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
                         <span className="text-sm text-slate-500">Avg Cost</span>
-                        <span className="font-bold text-slate-900">${userState.portfolio[selectedStockSymbol]?.avgCost.toFixed(2) || '0.00'}</span>
+                        <span className="font-bold text-slate-900">${avgCost.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
+                      <span className="text-sm text-slate-500">Profit / Loss</span>
+                      <span className={`font-bold ${
+                        profitLoss > 0 ? 'text-emerald-600' : profitLoss < 0 ? 'text-red-600' : 'text-slate-900'
+                      }`}>
+                        ${profitLoss.toFixed(2)}
+                      </span>
                     </div>
                     
                     <div className="mt-4 pt-4 border-t border-slate-100">

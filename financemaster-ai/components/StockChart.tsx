@@ -26,7 +26,7 @@ export const StockChart: React.FC<StockChartProps> = ({ data, color = "#10b981" 
               <stop offset="95%" stopColor={color} stopOpacity={0}/>
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f4f1f9" />
           <XAxis 
             dataKey="time" 
             tick={{fontSize: 12, fill: '#64748b'}} 

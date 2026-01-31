@@ -26,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onChangeView, balan
               <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
                 <TrendingUp className="h-5 w-5 text-white" />
               </div>
-              <span className="font-bold text-xl text-slate-800">FinanceMaster</span>
+              <span className="font-bold text-xl text-slate-800">SheFinance</span>
             </div>
             
             <div className="hidden sm:ml-8 sm:flex sm:space-x-4">

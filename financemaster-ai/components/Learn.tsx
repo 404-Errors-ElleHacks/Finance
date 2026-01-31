@@ -28,7 +28,7 @@ export const Learn: React.FC = () => {
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-slate-900 mb-4">Financial Knowledge Hub</h2>
         <p className="text-slate-600 max-w-2xl mx-auto">
-          Click on a topic below to receive an instant, AI-generated tip tailored for beginners. 
+          Click on a topic below to receive an instant tip tailored for beginners. 
           Learn bite-sized lessons to improve your financial health.
         </p>
       </div>

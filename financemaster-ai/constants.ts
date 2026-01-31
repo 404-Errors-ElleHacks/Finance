@@ -1,6 +1,6 @@
 import { Stock } from './types';
 
-export const INITIAL_BALANCE = 10000;
+export const INITIAL_BALANCE = 20000;
 
 export const INITIAL_STOCKS: Stock[] = [
   { symbol: 'GOOGL', name: 'Alphabet Inc.', price: 175.50, change: 0, changePercent: 0, category: 'Tech', volatility: 0.02 },
