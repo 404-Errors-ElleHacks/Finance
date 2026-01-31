@@ -16,7 +16,7 @@ export const Home: React.FC<HomeProps> = ({ onStart, onLearn }) => {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="max-w-4xl mx-auto px-6 text-center z-10">
           <span className="inline-block py-1 px-3 rounded-full bg-[#FF96A8]/20 text-[#FF96A8] text-sm font-semibold mb-6">
-            Helping Women Gain Financial Literacy
+            Empowering Women to Trade
           </span>
           <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-8">
             Your Financial Confidence <br />
